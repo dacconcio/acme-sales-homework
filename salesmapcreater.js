@@ -1,5 +1,5 @@
 function generateCustomerSalesMap(salesData, customerData) {
-	return salesData.reduce(function(accum, sale, index, arr) {
+	return salesData.reduce(function(accumulator, sale) {
 
 		let customerName = '';
 
@@ -9,12 +9,12 @@ function generateCustomerSalesMap(salesData, customerData) {
 			}
 		}
 
-		if (customerName in accum) {
-			accum[customerName] += sale.total;
-			return accum;
+		if (customerName in accumulator) {
+			accumulator[customerName] += sale.total;
+			return accumulator;
 		} else {
-			accum[customerName] = sale.total;
-			return accum;
+			accumulator[customerName] = sale.total;
+			return accumulator;
 		}
 	}, {});
 }
